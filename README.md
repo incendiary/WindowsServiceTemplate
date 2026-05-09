@@ -65,6 +65,18 @@ Remove-Service -Name "MyFileWriterService"
 
 ---
 
+## Running tests
+
+> Tests require a Windows host — the project targets `net8.0-windows` due to `ServiceBase` dependencies.
+
+```powershell
+dotnet test WindowsServiceTemplate.Tests\
+```
+
+The test suite covers `FileWriterService.WriteToFile()` directly (injected temp path), bypassing the `ServiceBase` lifecycle.
+
+---
+
 ## Pre-commit hooks (recommended)
 
 This repo ships a `.pre-commit-config.yaml` that runs [GitLeaks](https://github.com/gitleaks/gitleaks) (secret scanning) and `dotnet format` before every commit.
@@ -85,8 +97,8 @@ After that, hooks run automatically on `git commit`.
 |---|--------|-------------|
 | [#1](https://github.com/incendiary/WindowsServiceTemplate/issues/1) | ✅ Done | Add `.gitignore`, `.editorconfig`, and pre-commit hooks |
 | [#2](https://github.com/incendiary/WindowsServiceTemplate/issues/2) | ✅ Done | Update README with setup instructions and roadmap |
-| [#3](https://github.com/incendiary/WindowsServiceTemplate/issues/3) | 🔲 Open | Enable branch protection on `main` |
-| [#4](https://github.com/incendiary/WindowsServiceTemplate/issues/4) | 🔲 Open | Add unit/integration tests for `FileWriterService` |
+| [#3](https://github.com/incendiary/WindowsServiceTemplate/issues/3) | ✅ Done | Enable branch protection on `main` |
+| [#4](https://github.com/incendiary/WindowsServiceTemplate/issues/4) | ✅ Done | Add unit/integration tests for `FileWriterService` |
 
 ---
 
